@@ -1,0 +1,392 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+    background-color: black;
+}
+
+.container{
+    display: grid;
+    grid-template-areas: 
+        "hi hi foto1 kelapa kontak"
+        "foto2 age tentang tentang foto4"
+        "email email foto3 saran saran";
+    grid-gap: 10px;
+    padding: 10px;
+    
+}
+
+.hi, .foto1, .foto2, .foto3, .foto4, .kontak, .tentang, .email, .kelapa, .age, .saran {
+    padding: 5px;
+    border-radius: 0px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.hi:hover, .tentang:hover, .kelapa:hover, .age:hover, .saran:hover {
+    opacity: 0.7;
+}
+
+.kontak img:hover{
+    opacity: 0.7;
+}
+
+img{
+    width: 80px;
+    height: 80px;
+}
+
+.hi {
+    grid-area: hi;
+    background-color: #333;
+    height: 200px;
+    display: flex;                 /* Aktifkan Flexbox */
+    flex-direction: column;        /* Susun item secara vertikal */
+    align-items: center;           /* Pusatkan secara horizontal */
+    justify-content: center;       /* Pusatkan secara vertikal */
+    text-align: center;  
+}
+
+.foto1{
+    grid-area: foto1;
+    background-image: url('img/yusuf.jpeg');
+    background-size: cover;
+    background-position:center;
+    height: 200px;
+    grid-column: span 1; 
+}
+
+.foto2{
+    grid-area: foto2;
+    background-image: url('img/yusuf-sunset.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    grid-column: span 1; 
+}
+
+.foto3{
+    grid-area: foto3;
+    background-image: url('img/langit.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    grid-column: span 1; 
+}
+
+.foto4 {
+    grid-area: foto4;
+    background-color: #333;
+    height: 200px;
+    display: flex;
+    align-items: center; /* Vertikal alignment */
+    justify-content: center; /* Horizontal alignment */
+    text-align: center;
+    border-radius: 20px;
+}
+
+.kontak {
+    grid-area: kontak;
+    background-color: #333;
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;          /* Agar gambar dapat membungkus */
+    justify-content: center;  /* Horizontal alignment */
+    align-items: center;      
+    height: auto;             
+}
+
+.tentang{
+    grid-area: tentang;
+    background-color: #333;
+    display: flex;
+    flex-direction: column; /* Vertikal alignment */
+    align-items: center;    /* Horizontal alignment */
+    justify-content: center; 
+    text-align: center;    
+    padding: 5px;         
+}
+
+.email{
+    grid-area: email;
+    background-color: #333;
+    display: flex;
+    flex-direction: column; /* Vertikal alignment */
+    align-items: center;    /* Horizontal alignment */
+    justify-content: center; 
+    text-align: center;     /* Tengah-kan teks */
+    padding: 10px; 
+}
+
+.saran {
+    grid-area: saran;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden; /* Agar animasi tidak keluar dari kotak */
+}
+
+.saran-slider {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    animation: slide-saran 10s linear infinite; /* Animasi mirip dengan stack */
+}
+
+.saran-icon {
+    width: 50px; /* Ukuran ikon */
+    height: 50px;
+    margin: 0 15px; /* Jarak antar ikon */
+}
+
+@keyframes slide-saran {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.kelapa{
+    grid-area: kelapa;
+    background-color: #333;
+    display: flex;
+    font-size:x-large;
+    align-items: center; /* Menyelaraskan secara vertikal */
+    justify-content: center; /* Menyelaraskan secara horizontal */
+    height: 200px; /* Atur tinggi sesuai kebutuhan */
+    color: white;
+}
+
+.age{
+    grid-area: age;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #00aaff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0077cc;
+}
+
+.sosmed {
+    width: 32px;             /* Ukuran gambar */
+    height: 10px;
+    flex: 0 0 27%;           /* Lebar tetap 33% dari lebar kontainer */
+  
+}
+
+
+@media (max-width: 760px){
+    .container{
+        grid-template-areas: 
+        "hi"
+        "foto3"
+        "foto1"
+        "kontak"
+        "tentang"
+        "age"
+        "kelapa"
+        "foto4"
+        "saran"
+        "email";
+    }
+
+    .foto1, .foto2, .foto3, .foto4{
+        height: 150px;
+    }
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    transition: 0.4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+body.dark-mode {
+    background-color: white;
+    color: black;
+}
+
+body.dark-mode .hi,
+body.dark-mode .foto1,
+body.dark-mode .foto2,
+body.dark-mode .foto3,
+body.dark-mode .foto4,
+body.dark-mode .kontak,
+body.dark-mode .tentang,
+body.dark-mode .email,
+body.dark-mode .kelapa,
+body.dark-mode .age,
+body.dark-mode .saran {
+    background-color: #f0f0f0; 
+    color: black; 
+}
+
+body.dark-mode button {
+    background-color: #0077cc;
+    color: white;
+}
+
+body.dark-mode button:hover {
+    background-color: #005fa3;
+}
+
+body.dark-mode .slider {
+    background-color: #0077cc;
+}
+
+body.dark-mode .slider:before {
+    background-color: #fff;
+}
+
+
+svg{
+    color: black;
+}
+
+body.dark-mode .kontak img.sosmed {
+    filter: invert(1);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 80px; /* Lebar toggle diperbesar */
+    height: 40px; 
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 36px;
+    width: 36px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #555;
+}
+
+input:checked + .slider:before {
+    transform: translateX(40px); 
+}
+
+.icon {
+    position: absolute;
+    font-size: 24px; 
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.4s;
+}
+
+.sun {
+    left: 8px; 
+    opacity: 0;
+}
+
+.moon {
+    right: 8px; 
+    opacity: 1;
+}
+
+input:checked + .slider .sun {
+    opacity: 1;
+}
+
+input:checked + .slider .moon {
+    opacity: 0;
+}
